@@ -8,6 +8,14 @@ module MetricFu
 
   module_function
 
+  def metric_url
+    'https://github.com/metricfu/metric_fu'
+  end
+
+  def metric_name
+    'MetricFu'
+  end
+
   def run_dir
     @run_dir ||= Dir.pwd
   end
