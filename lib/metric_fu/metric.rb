@@ -1,6 +1,6 @@
 require 'set'
 MetricFu.lib_require { 'gem_run' }
-MetricFu.metrics_require { 'generator' }
+MetricFu.lib_require { 'generator' }
 # Encapsulates the configuration options for each metric
 module MetricFu
   class Metric
