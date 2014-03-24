@@ -9,7 +9,7 @@ module MetricFu
       def initialize(file, lines)
         @file = file
         @lines = lines
-        @data = File.readlines(file)
+        @data = File.open(file, 'rb') {|f| f.readlines }
       end
 
       def render(metrics)
