@@ -1,5 +1,5 @@
 require "spec_helper"
-MetricFu.metrics_require { 'graph' }
+MetricFu.reporting_require { 'graphs/graph' }
 
 describe MetricFu do
 
