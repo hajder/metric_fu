@@ -4,12 +4,14 @@ module MetricFu
   class Template
     attr_accessor :output_directory
 
-
     def output_directory
       @output_directory || MetricFu::Io::FileSystem.directory('output_directory')
     end
 
     # Renders a partial and add optional instance variables to the template
+    # @param name <String> name of partial, omitting leading underscore (_)
+    # @param instance_variables <Hash> of instance variable
+    # names and values to set
     def render_partial(name, instance_variables = {})
       create_instance_vars(instance_variables)
       erbify("_#{name}")
