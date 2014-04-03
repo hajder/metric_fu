@@ -1,5 +1,5 @@
 require 'fileutils'
-MetricFu.metrics_require { 'base_template' }
+MetricFu.lib_require { 'templates/template' }
 MetricFu.lib_require { 'templates/report' }
 
 class AwesomeTemplate < MetricFu::Template
