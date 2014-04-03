@@ -1,4 +1,4 @@
 module MetricFu
-  class AnalysisError < RuntimeError
-  end
+  Errors        = Class.new(RuntimeError)
+  AnalysisError = Class.new(Errors)
 end
