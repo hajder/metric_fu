@@ -17,6 +17,7 @@ MetricFu.formatter_dir #=> metric_fu/lib/formatter
 MetricFu.reporting_require { 'result' }
 MetricFu.reporting_dir #=> metric_fu/lib/reporting
 MetricFu.logging_require { 'mf_debugger' }
+MetricFu.lib_require { 'logger' }
 MetricFu.logging_dir   #=> metric_fu/lib/logging
 MetricFu.errors_require { 'analysis_error' }
 MetricFu.errors_dir    #=> metric_fu/lib/errors

@@ -191,7 +191,7 @@ describe MetricFu do
 
   def metric_fu(options = "--no-open")
     message = ''
-    out = MfDebugger::Logger.capture_output {
+    out = MetricFu::Utility.capture_output {
       begin
         argv = Shellwords.shellwords(options)
         MetricFu::Cli::Client.new.run(argv)

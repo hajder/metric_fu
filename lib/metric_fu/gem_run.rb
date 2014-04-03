@@ -2,7 +2,7 @@
 require 'open3'
 require 'shellwords'
 require 'metric_fu'
-MetricFu.lib_require { 'logging/mf_debugger' }
+MetricFu.lib_require { 'logger' }
 MetricFu.lib_require { 'gem_version' }
 module MetricFu
   class GemRun

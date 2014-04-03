@@ -8,7 +8,7 @@ module MetricFu
 
     def emit
       require 'code_metrics/statistics'
-      @output = MfDebugger::Logger.capture_output do
+      @output = MetricFu::Utility.capture_output do
         CodeMetrics::Statistics.new(*dirs).to_s
       end
     end

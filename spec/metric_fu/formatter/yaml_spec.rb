@@ -53,7 +53,7 @@ describe MetricFu::Formatter::YAML do
     end
 
     it "creates a report yaml in the custom stream" do
-      out = MfDebugger::Logger.capture_output {
+      out = MetricFu::Utility.capture_output {
         MetricFu::Formatter::YAML.new(output: @output).finish
       }
       expect(out).to include ":#{@metric1}:"

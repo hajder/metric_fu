@@ -72,9 +72,8 @@ module MetricFu
     end
 
     def setup
-      MetricFu.logging_require { 'mf_debugger' }
-      Object.send :include, MfDebugger
-      MfDebugger::Logger.debug_on = !!(ENV['MF_DEBUG'] =~ /true/i)
+      MetricFu.lib_require { 'logger' }
+      MetricFu.logger.debug_on = !!(ENV['MF_DEBUG'] =~ /true/i)
 
       MetricFu.lib_require { 'configuration' }
       MetricFu.lib_require { 'metric' }

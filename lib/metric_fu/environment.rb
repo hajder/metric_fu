@@ -1,16 +1,16 @@
 require 'redcard'
 require 'rbconfig'
-MetricFu.logging_require { 'mf_debugger' }
+MetricFu.lib_require { 'logger' }
 module MetricFu
   module Environment
 
     # TODO: Set log_level here, instead
     def verbose
-      MfDebugger::Logger.debug_on
+      MetricFu.logger.debug_on
     end
 
     def verbose=(toggle)
-      MfDebugger::Logger.debug_on = toggle
+      MetricFu.logger.debug_on = toggle
     end
 
     # Perform a simple check to try and guess if we're running

@@ -3,7 +3,7 @@
 
 # puts "SUCCESS!"
 # Process.exit! 0
-require 'metric_fu/logging/mf_debugger'
+require 'metric_fu/logger'
 require 'open3'
 class UsageTest
   def initialize
@@ -34,7 +34,6 @@ class UsageTest
   end
 end
 SnippetRunner = Struct.new(:code, :language) do
-  include MfDebugger
   SystemCommandError = Class.new(StandardError)
   TestResult = Struct.new(:success, :captured_output)
 
@@ -104,9 +103,9 @@ SnippetRunner = Struct.new(:code, :language) do
     exception = nil
     stderr = :not_set
     stdout = :not_set
-    MfDebugger::Logger.capture_output(STDOUT) do
+    MetricFu::Utility.capture_output(STDOUT) do
      stdout =
-     MfDebugger::Logger.capture_output(STDERR) do
+     MetricFu::Utility.capture_output(STDERR) do
        begin
          stderr = yield
        rescue Exception => e

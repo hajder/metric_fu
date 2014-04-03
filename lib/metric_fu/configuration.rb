@@ -1,4 +1,4 @@
-MetricFu.logging_require { 'mf_debugger' }
+MetricFu.lib_require { 'logger' }
 module MetricFu
 
   # Even though the below class methods are defined on the MetricFu module
@@ -61,10 +61,6 @@ module MetricFu
 
     def initialize #:nodoc:#
       reset
-    end
-
-    def mf_debug(msg)
-      MfDebugger.mf_debug msg
     end
 
     # TODO review if these code is functionally duplicated in the
