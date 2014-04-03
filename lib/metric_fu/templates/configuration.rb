@@ -1,3 +1,4 @@
+MetricFu.lib_require { 'templates/metrics_template' }
 module MetricFu::Templates
   class Configuration
 
@@ -5,7 +6,7 @@ module MetricFu::Templates
 
     def initialize
       @options = {}
-      @options[:template_class] = AwesomeTemplate
+      @options[:template_class] = MetricFu::Templates::MetricsTemplate
       @options[:darwin_txmt_protocol_no_thanks] = true
       # turning off syntax_highlighting may avoid some UTF-8 issues
       @options[:syntax_highlighting] = true

@@ -44,7 +44,7 @@ module MetricFu
 
       # Instantiates a new template class based on the configuration set
       # in MetricFu::Configuration, or through the MetricFu.config block
-      # in your rake file (defaults to the included AwesomeTemplate),
+      # in your rake file (defaults to the included MetricFu::Templates::MetricsTemplate),
       # assigns the result_hash to the result_hash in the template, and
       # tells the template to to write itself out.
       def save_templatized_result

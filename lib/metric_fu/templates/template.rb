@@ -1,15 +1,8 @@
 require 'erb'
 module MetricFu
 
-  # The Template class is intended as an abstract class for concrete
-  # template classes to subclass.  It provides a variety of utility
-  # methods to make templating a bit easier.  However, classes do not
-  # have to inherit from here in order to provide a template.  The only
-  # requirement for a template class is that it provides a #write method
-  # to actually write out the template.  See AwesomeTemplate for an
-  # example.
   class Template
-    attr_accessor :result, :per_file_data, :formatter, :output_directory
+    attr_accessor :output_directory
 
 
     def output_directory
@@ -80,20 +73,14 @@ module MetricFu
       # TODO: each MetricFu::Metric should know about its templates
       #  This class knows too much about the filesystem structure
       if MetricFu::Metric.enabled_metrics.map(&:name).include?(section) # expects a symbol
-        File.join(template_dir(section.to_s), "#{section}.html.erb")
+        metric_template_path(section.to_s)
       else
         File.join(template_directory,  section.to_s + ".html.erb")
       end
     end
 
-    def template_dir(metric)
-      File.join(MetricFu.metrics_dir, metric, metric_template_dir)
-    end
-
-    # e.g. template_awesome, template_standard
-    def metric_template_dir
-      template_name = self.class.name.sub('Template', '')[/^([A-Z][a-z]+)+/].downcase
-      "template_#{template_name}"
+    def metric_template_path(metric)
+      File.join(MetricFu.metrics_dir, metric, 'report.html.erb')
     end
 
     # Determines whether a template file exists for a given section
@@ -252,13 +239,8 @@ module MetricFu
       string.split('_').collect{|word| word[0] = word[0..0].upcase; word}.join(" ")
     end
 
-    # belive me, I tried to meta program this with an inherited hook
-    # I couldn't get it working
     def template_directory
-      raise "you need to define this method in each subclass with File.dirname(__FILE__)"
-      # def template_directory
-      #   File.dirname(__FILE__)
-      # end
+      fail "subclasses must specify template_directory. Usually File.dirname(__FILE__)"
     end
   end
 end

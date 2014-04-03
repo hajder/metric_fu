@@ -21,7 +21,7 @@ module MetricFu
     end
 
     module Templates
-      MetricFu.reporting_require { 'templates/awesome/awesome_template' }
+      MetricFu.lib_require { 'templates/metrics_template' }
 
       module_function
 
